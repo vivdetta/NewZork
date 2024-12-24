@@ -1,0 +1,154 @@
+{
+  "GameIntroduction": "Welcome to The Haunted Shack!\nYou can explore different locations, interact with items, and solve puzzles to progress.\nHere are the available commands:\n- 'move [direction]' to move in a specific direction.\n- 'take [item]' to take an item and add it to your inventory.\n- 'look' to get a description of your current surroundings.\n- 'inventory' to view the items you are carrying.\n- 'help' to display available commands.\n- 'save' to save your game.\n- 'quit' to exit the game.\nGood luck, adventurer!\n",
+  "Items": [
+    {
+      "Name": "Sword",
+      "Description": "A sharp sword. It might be useful.",
+      "IsCollectable": true
+    },
+    {
+      "Name": "Shield",
+      "Description": "A sturdy shield. Useful for defense.",
+      "IsCollectable": true
+    },
+    {
+      "Name": "Mug",
+      "Description": "An empty mug. It doesn't seem useful right now.",
+      "IsCollectable": true
+    },
+    {
+      "Name": "Rusty Key",
+      "Description": "A rusty old key. It looks like it could unlock something important.",
+      "IsCollectable": true
+    },
+    {
+      "Name": "Magic Knife",
+      "Description": "A short but sharp knife that glows with a green light. It looks like it could cut through anything.",
+      "IsCollectable": true
+    },
+    {
+      "Name": "Ancient Artifact",
+      "Description": "An ancient artifact with mysterious inscriptions. It radiates a powerful energy.",
+      "IsCollectable": true
+    }
+  ],
+  "Locations": [
+    {
+      "Name": "Living Room",
+      "Description": "You are in the living room.\nThere is an old rug on the floor, a bookshelf to the west, a chest to the east, and an open door to what looks like a kitchen to the north.",
+      "Connections": {
+        "north": "Kitchen",
+        "rug": "Secret Area in Living Room",
+        "south": "Outside House",
+        "west": "Bookshelf",
+        "east": "Chest"
+      },
+      "Items": [],
+      "IsMainRoom": true,
+      "MainRoomName": null
+    },
+    {
+      "Name": "Bookshelf",
+      "Description": "The bookshelf is in complete disarray.\nAs you look over the books whose pages are moldy with age, a glint catches your eye, a Rusty Key.",
+      "Connections": {
+        "south": "Living Room",
+        "rug": "Secret Area in Living Room",
+        "east": "Chest",
+        "north": "Kitchen"
+      },
+      "Items": [ "Rusty Key" ],
+      "IsMainRoom": false,
+      "MainRoomName": "Living Room"
+    },
+    {
+      "Name": "Chest",
+      "Description": "The chest looks ancient and mysterious.\nYou test and find the chest is unlocked! What great fortune.\nYou look through the contents of the chest, and it is mostly rags and paper. However, you notice something sharp, a Sword!",
+      "Connections": {
+        "south": "Living Room",
+        "rug": "Secret Area in Living Room",
+        "north": "Kitchen",
+        "west": "Bookshelf"
+      },
+      "Items": [ "Sword" ],
+      "IsMainRoom": false,
+      "MainRoomName": "Living Room"
+    },
+    {
+      "Name": "Secret Area in Living Room",
+      "Description": "As you approach the rug, you notice an unusual lump under it.\nAs you lift it up, there's a faint glow coming from underneath — a Magic Knife!\nWhat a valuable find!",
+      "Connections": {
+        "south": "Living Room",
+        "west": "Bookshelf",
+        "east": "Chest",
+        "north": "Kitchen"
+      },
+      "Items": [ "Magic Knife" ],
+      "IsMainRoom": false,
+      "MainRoomName": "Living Room"
+    },
+    {
+      "Name": "Kitchen",
+      "Description": "There is so much dust and debris in the kitchen it's hard to tell what's in here.\nTo the south lies the Living Room, to the north is a closed door. There is a fridge to the west side of the room and a very sludgy sink to the east.",
+      "Connections": {
+        "south": "Living Room",
+        "north": "Closed Door",
+        "west": "Fridge",
+        "east": "Sink"
+      },
+      "Items": [],
+      "IsMainRoom": true,
+      "MainRoomName": null
+    },
+    {
+      "Name": "Closed Door",
+      "Description": "An ancient-looking door stands in your way.\nYou test the door handle and push, but it doesn't budge. Locked.\nIf only there was some way to unlock it...",
+      "Connections": {
+        "south": "Kitchen",
+        "west": "Fridge",
+        "east": "Sink",
+        "north": "Boss Room"
+      },
+      "Items": [],
+      "IsMainRoom": false,
+      "MainRoomName": "Kitchen",
+      "IsLocked": true,
+      "RequiredKey": "Rusty Key"
+    },
+    {
+      "Name": "Sink",
+      "Description": "You look into the rusty sink, and it is filled with brown slime.\nThere's no way you're touching that.\nYou open the drawers under the sink and find a single rusted Mug.",
+      "Connections": {
+        "north": "Closed Door",
+        "south": "Kitchen",
+        "west": "Fridge"
+      },
+      "Items": [ "Mug" ],
+      "IsMainRoom": false,
+      "MainRoomName": "Kitchen"
+    },
+    {
+      "Name": "Fridge",
+      "Description": "There is a fridge that looks in relatively good condition... and it seems to be working!\nYou open the fridge and then close it again, vomiting a little in your mouth.\nYou never want to open that fridge again!\nAs you look down though you notice a old pot.... wait...Thats a shield. You found a shield.",
+      "Connections": {
+        "south": "Kitchen",
+        "north": "Closed Door",
+        "east": "Sink"
+      },
+      "Items": [ "Shield" ],
+      "IsMainRoom": false,
+      "MainRoomName": "Kitchen"
+    },
+    {
+      "Name": "Boss Room",
+      "Description": "You've entered a dimly lit chamber. The air is thick, and you can feel an ominous presence.",
+      "Connections": {
+        "south": "Closed Door"
+      },
+      "Items": [ "Ancient Artifact" ],
+      "IsMainRoom": false,
+      "MainRoomName": null,
+      "IsLocked": false,
+      "RequiredKey": null
+    }
+  ]
+}
